@@ -4,11 +4,13 @@
 
 os: osx
 osx_image: xcode9.3
+language: objective-c
 cache: cocoapods
 podfile: Example/Podfile
+xcode_workspace: Example/YKPhotoCircleCrop.xcworkspace
+xcode_scheme: YKPhotoCircleCrop_Example
 before_install:
 - gem install cocoapods # Since Travis is not always on latest version
 - pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild test -workspace Example/YKPhotoCircleCrop.xcworkspace -scheme YKPhotoCircleCrop-Example -sdk iphonesimulator11.4 ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint
