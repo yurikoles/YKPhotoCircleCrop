@@ -8,12 +8,13 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YKPhotoCircleCrop'
-  s.version          = '1.3.1'
+  s.version          = '1.3.2'
   s.summary          = 'A simple circular image cropper written in Swift'
   s.description      = <<-DESC
 This is a simple circular image cropper written in Swift which can be used after the user image selection. The user can select the circle they want to user as profile picture.
                        DESC
   s.homepage         = 'https://github.com/yurikoles/YKPhotoCircleCrop'
+  s.screenshots      = 'https://github.com/yurikoles/YKPhotoCircleCrop/blob/master/Resources/screenshot1.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Yurii Kolesnykov' => 'yurikoles@gmail.com' }
   s.source           = { :git => 'https://github.com/yurikoles/YKPhotoCircleCrop.git', :tag => s.version.to_s }
