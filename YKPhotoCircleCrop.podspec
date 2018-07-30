@@ -19,5 +19,5 @@ This is a simple circular image cropper written in Swift which can be used after
   s.source           = { :git => 'https://github.com/yurikoles/YKPhotoCircleCrop.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/yurikoles'
   s.ios.deployment_target = '8.0'
-  s.source_files = 'YKPhotoCircleCrop/Classes/**/*'
+  s.source_files     = 'YKPhotoCircleCrop/Classes/**/*'
 end
