@@ -10,7 +10,6 @@
 import UIKit
 
 class YKCircleCropCutterView: UIView {
-
     /// Diameter of the circle
     var circleDiameter: CGFloat = 240 {
         didSet {
@@ -29,10 +28,14 @@ class YKCircleCropCutterView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-
         let context = UIGraphicsGetCurrentContext()
 
-        UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.7).setFill()
+        UIColor(red: 0.0,
+                green: 0.0,
+                blue: 0.0,
+                alpha: 0.7)
+            .setFill()
+
         UIRectFill(rect)
 
         // Draw the circle
@@ -56,11 +59,16 @@ class YKCircleCropCutterView: UIView {
     // Allow touches through the circle crop cutter view
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         for subview in subviews as [UIView] {
-            if !subview.isHidden && subview.alpha > 0 && subview.isUserInteractionEnabled && subview.point(inside: convert(point, to: subview), with: event) {
+            if !subview.isHidden &&
+                subview.alpha > 0 &&
+                subview.isUserInteractionEnabled &&
+                subview.point(inside: convert(point,
+                                              to: subview),
+                              with: event) {
                 return true
             }
         }
+
         return false
     }
-
 }

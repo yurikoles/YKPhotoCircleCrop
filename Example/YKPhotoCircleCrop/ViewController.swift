@@ -11,7 +11,6 @@ import UIKit
 import YKPhotoCircleCrop
 
 class ViewController: UIViewController, YKCircleCropViewControllerDelegate {
-
     @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {

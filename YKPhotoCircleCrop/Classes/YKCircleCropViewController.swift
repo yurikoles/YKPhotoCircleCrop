@@ -15,7 +15,6 @@ import UIKit
 }
 
 open class YKCircleCropViewController: UIViewController, UIScrollViewDelegate {
-
     // MARK: - Open properties
 
     /// Set the delegate to get the cropped image
@@ -51,16 +50,20 @@ open class YKCircleCropViewController: UIViewController, UIScrollViewDelegate {
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = .black
 
         // Setup imageView
         imageView = UIImageView()
         imageView.image = image
-        imageView.frame = CGRect(origin: CGPoint.zero, size: image.size)
+        imageView.frame = CGRect(origin: .zero,
+                                 size: image.size)
 
         // Setup scrollView
-        scrollView = YKCircleCropScrollView(frame: CGRect(x: 0, y: 0, width: circleDiameter, height: circleDiameter))
-        scrollView.backgroundColor = UIColor.black
+        scrollView = YKCircleCropScrollView(frame: CGRect(x: 0,
+                                                          y: 0,
+                                                          width: circleDiameter,
+                                                          height: circleDiameter))
+        scrollView.backgroundColor = .black
         scrollView.delegate = self
         scrollView.addSubview(imageView)
         scrollView.contentSize = image.size
@@ -76,7 +79,8 @@ open class YKCircleCropViewController: UIViewController, UIScrollViewDelegate {
         scrollView.zoomScale = scaleWidth
 
         // Center vertically
-        scrollView.contentOffset = CGPoint(x: (scrollView.contentSize.width - scrollView.frame.size.width)/2, y: (scrollView.contentSize.height - scrollView.frame.size.height)/2)
+        scrollView.contentOffset = CGPoint(x: (scrollView.contentSize.width - scrollView.frame.size.width)/2,
+                                           y: (scrollView.contentSize.height - scrollView.frame.size.height)/2)
 
         scrollView.center = view.center
         view.addSubview(scrollView)
@@ -87,7 +91,8 @@ open class YKCircleCropViewController: UIViewController, UIScrollViewDelegate {
 
     override open func dismiss(animated: Bool, completion: (() -> Void)?) {
         if isModal {
-            super.dismiss(animated: animated, completion: completion)
+            super.dismiss(animated: animated,
+                          completion: completion)
         } else {
             _ = navigationController?.popViewController(animated: animated)
         }
@@ -104,27 +109,61 @@ open class YKCircleCropViewController: UIViewController, UIScrollViewDelegate {
         view.addSubview(cutterView)
 
         cutterView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addConstraint(NSLayoutConstraint(item: cutterView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: cutterView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: cutterView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: cutterView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: cutterView,
+                                                   attribute: .top,
+                                                   relatedBy: .equal,
+                                                   toItem: self.view,
+                                                   attribute: .top,
+                                                   multiplier: 1,
+                                                   constant: 0))
+
+        self.view.addConstraint(NSLayoutConstraint(item: cutterView,
+                                                   attribute: .leading,
+                                                   relatedBy: .equal,
+                                                   toItem: self.view,
+                                                   attribute: .leading,
+                                                   multiplier: 1,
+                                                   constant: 0))
+
+        self.view.addConstraint(NSLayoutConstraint(item: cutterView,
+                                                   attribute: .bottom,
+                                                   relatedBy: .equal,
+                                                   toItem: self.view,
+                                                   attribute: .bottom,
+                                                   multiplier: 1,
+                                                   constant: 0))
+
+        self.view.addConstraint(NSLayoutConstraint(item: cutterView,
+                                                   attribute: .trailing,
+                                                   relatedBy: .equal,
+                                                   toItem: self.view,
+                                                   attribute: .trailing,
+                                                   multiplier: 1,
+                                                   constant: 0))
     }
 
     fileprivate func setupButtons() {
-
         selectButton = UIButton()
         cancelButton = UIButton()
 
         // Styles
         selectButton.setTitle(selectTitle, for: .normal)
-        selectButton.setTitleColor(UIColor.white, for: .normal)
+
+        selectButton.setTitleColor(.white, for: .normal)
+
         selectButton.titleLabel?.font = cancelButton.titleLabel?.font.withSize(17)
-        selectButton.addTarget(self, action: #selector(selectAction), for: .touchUpInside)
+        selectButton.addTarget(self,
+                               action: #selector(selectAction),
+                               for: .touchUpInside)
 
         cancelButton.setTitle(cancelTitle, for: .normal)
-        cancelButton.setTitleColor(UIColor.white, for: .normal)
+
+        cancelButton.setTitleColor(.white, for: .normal)
+
         cancelButton.titleLabel?.font = cancelButton.titleLabel?.font.withSize(17)
-        cancelButton.addTarget(self, action: #selector(cancelAction), for: .touchUpInside)
+        cancelButton.addTarget(self,
+                               action: #selector(cancelAction),
+                               for: .touchUpInside)
 
         // Adding buttons to the superview
         cutterView.addSubview(selectButton)
@@ -132,13 +171,39 @@ open class YKCircleCropViewController: UIViewController, UIScrollViewDelegate {
 
         // cancelButton constraints
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        cutterView.addConstraint(NSLayoutConstraint(item: cancelButton, attribute: .leading, relatedBy: .equal, toItem: cutterView, attribute: .leadingMargin, multiplier: 1, constant: 20))
-        cutterView.addConstraint(NSLayoutConstraint(item: cancelButton, attribute: .bottomMargin, relatedBy: .equal, toItem: cutterView, attribute: .bottomMargin, multiplier: 1, constant: -32))
+        cutterView.addConstraint(NSLayoutConstraint(item: cancelButton,
+                                                    attribute: .leading,
+                                                    relatedBy: .equal,
+                                                    toItem: cutterView,
+                                                    attribute: .leadingMargin,
+                                                    multiplier: 1,
+                                                    constant: 20))
+
+        cutterView.addConstraint(NSLayoutConstraint(item: cancelButton,
+                                                    attribute: .bottomMargin,
+                                                    relatedBy: .equal,
+                                                    toItem: cutterView,
+                                                    attribute: .bottomMargin,
+                                                    multiplier: 1,
+                                                    constant: -32))
 
         // selectButton consrtraints
         selectButton.translatesAutoresizingMaskIntoConstraints = false
-        cutterView.addConstraint(NSLayoutConstraint(item: selectButton, attribute: .trailing, relatedBy: .equal, toItem: cutterView, attribute: .trailingMargin, multiplier: 1, constant: -20))
-        cutterView.addConstraint(NSLayoutConstraint(item: selectButton, attribute: .bottomMargin, relatedBy: .equal, toItem: cutterView, attribute: .bottomMargin, multiplier: 1, constant: -32))
+        cutterView.addConstraint(NSLayoutConstraint(item: selectButton,
+                                                    attribute: .trailing,
+                                                    relatedBy: .equal,
+                                                    toItem: cutterView,
+                                                    attribute: .trailingMargin,
+                                                    multiplier: 1,
+                                                    constant: -20))
+
+        cutterView.addConstraint(NSLayoutConstraint(item: selectButton,
+                                                    attribute: .bottomMargin,
+                                                    relatedBy: .equal,
+                                                    toItem: cutterView,
+                                                    attribute: .bottomMargin,
+                                                    multiplier: 1,
+                                                    constant: -32))
     }
 
     public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -150,35 +215,50 @@ open class YKCircleCropViewController: UIViewController, UIScrollViewDelegate {
     //- - -
 
     @objc func selectAction() {
-
-        let newSize = CGSize(width: image.size.width * scrollView.zoomScale, height: image.size.height * scrollView.zoomScale)
+        let newSize = CGSize(width: image.size.width * scrollView.zoomScale,
+                             height: image.size.height * scrollView.zoomScale)
 
         let offset = scrollView.contentOffset
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: circleDiameter, height: circleDiameter), false, 0)
-        let circlePath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: circleDiameter, height: circleDiameter))
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: circleDiameter,
+                                                      height: circleDiameter),
+                                               false,
+                                               0)
+
+        let circlePath = UIBezierPath(ovalIn: CGRect(x: 0,
+                                                     y: 0,
+                                                     width: circleDiameter,
+                                                     height: circleDiameter))
         circlePath.addClip()
-        var sharpRect = CGRect(x: -offset.x, y: -offset.y, width: newSize.width, height: newSize.height)
+        var sharpRect = CGRect(x: -offset.x,
+                               y: -offset.y,
+                               width: newSize.width,
+                               height: newSize.height)
+        
         sharpRect = sharpRect.integral
 
         image.draw(in: sharpRect)
         let finalImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        if let imageData = UIImagePNGRepresentation(finalImage!), var pngImage = UIImage(data: imageData) {
 
+        if let imageData = UIImagePNGRepresentation(finalImage!),
+            var pngImage = UIImage(data: imageData) {
             if let imageSize = imageSize {
                 pngImage = pngImage.resizeImage(newWidth: imageSize.width)
             }
-            delegate?.circleCropDidCropImage(pngImage)
 
+            delegate?.circleCropDidCropImage(pngImage)
         } else {
             delegate?.circleCropDidCancel?()
         }
-        self.dismiss(animated: true, completion: nil)
+
+        self.dismiss(animated: true,
+                     completion: nil)
     }
 
     @objc func cancelAction() {
         delegate?.circleCropDidCancel?()
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true,
+                     completion: nil)
     }
 }
