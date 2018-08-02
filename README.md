@@ -78,7 +78,7 @@ circleCropController.cancelTitle = NSLocalizedString("cancel-button", comment: "
 
 
 ## Dependencies
-YKPhotoCircleCrop is based on AAPhotoCircleCrop, which is in turn based on[KACircleCropViewController](https://github.com/kekearif/KACircleCropViewController)
+YKPhotoCircleCrop is based on AAPhotoCircleCrop, which is in turn based on [KACircleCropViewController](https://github.com/kekearif/KACircleCropViewController)
 
 ## Author
 
