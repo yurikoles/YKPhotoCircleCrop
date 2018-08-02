@@ -1,5 +1,5 @@
 PODS:
-  - YKPhotoCircleCrop (1.3.1)
+  - YKPhotoCircleCrop (1.3.4)
 
 DEPENDENCIES:
   - YKPhotoCircleCrop (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YKPhotoCircleCrop: 7cdbea03a28738a41dd873b86ed42284d124993d
+  YKPhotoCircleCrop: 2d749949a8c3ddf2e9255ec40ff1df17b6cd6016
 
-PODFILE CHECKSUM: 890536092f526b90bb6cea3344b91a155b35e85b
+PODFILE CHECKSUM: 1dcc6cf2f0296a6fd8f970d9af33ca2eed2482b1
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3
