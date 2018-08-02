@@ -234,7 +234,7 @@ open class YKCircleCropViewController: UIViewController, UIScrollViewDelegate {
                                y: -offset.y,
                                width: newSize.width,
                                height: newSize.height)
-        
+
         sharpRect = sharpRect.integral
 
         image.draw(in: sharpRect)

@@ -21,7 +21,7 @@ extension UIImage {
                              y: 0,
                              width: newWidth,
                              height: newHeight))
-        
+
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
